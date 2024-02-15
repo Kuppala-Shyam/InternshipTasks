@@ -100,11 +100,13 @@ public class InsertingRecordsOfEmployeeDetails {
 						System.out.println("Invalid table name. Please enter a valid table name.");
 					}
 				}
+				//Adding employee details ..
 				System.out.println("Enter the employee details......");
 				boolean continuosAddtionOfDetails = true;
 				while (continuosAddtionOfDetails) {
 					System.out.print("Enter employee ID (greater than 0): ");
 					int id;
+					// validation for employee id e.g. checking for whether it repeated or less than 1
 					while (true) {
 						id = scanner.nextInt();
 						if (id <= 0) {
@@ -134,6 +136,7 @@ public class InsertingRecordsOfEmployeeDetails {
 					String hire_date = scanner.next();
 					System.out.println("Enter employee age: ");
 					int age = scanner.nextInt();
+					// setting the details of employees by setter methods
 					preparedStatement.setInt(1, id);
 					preparedStatement.setString(2, name);
 					preparedStatement.setString(3, email);
@@ -141,7 +144,7 @@ public class InsertingRecordsOfEmployeeDetails {
 					preparedStatement.setString(5, department);
 					preparedStatement.setString(6, hire_date);
 					preparedStatement.setInt(7, age);
-
+					// executeUpdate updates the table in the database and returns number of rows effected
 					int effectedRows = preparedStatement.executeUpdate();
 					if (effectedRows > 0) {
 						System.out.println("Employee inserted successfully into \"" + tableName + "\" table!");
@@ -153,7 +156,9 @@ public class InsertingRecordsOfEmployeeDetails {
 					continuosAddtionOfDetails = scanner.next().equalsIgnoreCase("y");
 				}
 			} finally {
+				//closing the preparedStatement
 				preparedStatement.close();
+				//closing the connection
 				connection.close();
 
 			}
@@ -169,6 +174,7 @@ public class InsertingRecordsOfEmployeeDetails {
 		// Check if table exists using SHOW TABLES
 		try (Statement stmt = conn.createStatement()) {
 			ResultSet rs = stmt.executeQuery("SHOW TABLES LIKE '" + tableName + "'");
+			//it return boolean value
 			return rs.next();
 		} catch (SQLException e) {
 			if (e.getErrorCode() == 1146) { // Table doesn't exist
@@ -179,8 +185,10 @@ public class InsertingRecordsOfEmployeeDetails {
 	}
 
 	private static boolean isIdExists(Connection connection, int id) {
+		// Check if  particular id entered by user exists using where clause
 		try (Statement stmt = connection.createStatement()) {
 			ResultSet rs = stmt.executeQuery("SELECT * FROM employees WHERE id = " + id);
+			// it returns boolean value
 			return rs.next();
 		} catch (SQLException e) {
 //			e.printStackTrace();
