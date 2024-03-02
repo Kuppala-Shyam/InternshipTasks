@@ -4,7 +4,7 @@
 <p>To build and run the application, follow these steps:</p>
 <p>1.Ensure you have Maven, Java, and MySQL installed on your system.</p>
 <p>2.Clone the repository to your local machine:</p>
-<code>git clone <a>https://github.com/your_username/Books_Management_API.git</a></code>
+<code>git clone <a href="https://github.com/InternshipTasks.git">https://github.com/InternshipTasks.git</a></code>
 <p>3.Navigate to the project directory:</p>
 <code>cd BookManagementAPI</code>
 <p>4.Configure your MySQL database connection in the application.properties file:</p>
@@ -19,18 +19,19 @@ spring.datasource.password=root
 <h2>API Documentation</h2>
 <p>This API provides endpoints to manage books. Below are the available endpoints:</p>
 <ul>
-  <li>POST /savebook: Add a new book to the system.<a>http://localhost:8080/savebook</a> </li>
-   <li>GET /fetchAllBooks: Retrieve a list of all books.<a>http://localhost:8080/fetchAllBooks</a> </li>
-   <li>GET /retrieveBookById/{id}: Retrieve details of a book by ID.<a>http://localhost:8080/retrieveBookById/1</a> </li>
-   <li>GET /retrieveBookByName/{bookTitle}: Retrieve details of a book by title.<a>http://localhost:8080/retrieveBookByName/Thermodynamics</a></li>
-   <li>PUT /updateBookDetailsByBookTitle/{bookTitle}: Update details of a book by title.<a>http://localhost:8080/updateBookDetailsByBookTitle/Thermodynamics</a></li>
-   <li>DELETE /deleteBookByBookTitle/{bookTitle}: Delete a book by title.<a>http://localhost:8080/deleteBookByBookTitle/Thermodynamics</a></li>
-   <li>DELETE /deleteBookByBookId/{bookId}: Delete a book by ID.<a>http://localhost:8080/deleteBookByBookId/1:</a></li>
+  <li>POST /savebook: Add a new book to the system.<a href="http://localhost:8080/savebook">http://localhost:8080/savebook</a> </li>
+   <li>GET /fetchAllBooks: Retrieve a list of all books.<a href ="http://localhost:8080/fetchAllBooks">http://localhost:8080/fetchAllBooks</a> </li>
+   <li>GET /retrieveBookById/{id}: Retrieve details of a book by ID.<a href="http://localhost:8080/retrieveBookById/1">http://localhost:8080/retrieveBookById/1</a> </li>
+   <li>GET /retrieveBookByName/{bookTitle}: Retrieve details of a book by title.
+     <a href="http://localhost:8080/retrieveBookByName/Thermodynamics">http://localhost:8080/retrieveBookByName/Thermodynamics</a></li>
+   <li>PUT /updateBookDetailsByBookTitle/{bookTitle}: Update details of a book by title.<a href ="http://localhost:8080/updateBookDetailsByBookTitle/Thermodynamics">http://localhost:8080/updateBookDetailsByBookTitle/Thermodynamics</a></li>
+   <li>DELETE /deleteBookByBookTitle/{bookTitle}: Delete a book by title.<a href ="http://localhost:8080/deleteBookByBookTitle/Thermodynamics">http://localhost:8080/deleteBookByBookTitle/Thermodynamics</a></li>
+   <li>DELETE /deleteBookByBookId/{bookId}: Delete a book by ID.<a href ="http://localhost:8080/deleteBookByBookId/1">http://localhost:8080/deleteBookByBookId/1</a></li>
 </ul>
 <h2>Testing the Application</h2>
 <p>You can test the application using the provided controller and service tests. These tests cover various scenarios to ensure the proper functioning of the API</p>
 <h2>Swagger Documentation</h2>
-<p>The API documentation is available using Swagger. After running the application, you can access the Swagger UI at <a>http://localhost:8080/swagger-ui.html</a> to interactively explore the endpoints and test them.</p>
+<p>The API documentation is available using Swagger. After running the application, you can access the Swagger UI at <a href ="http://localhost:8080/swagger-ui.html">http://localhost:8080/swagger-ui.html</a> to interactively explore the endpoints and test them.</p>
 <h2>Dependencies</h2>
 <ul>
   <li>Spring Boot:<p>Utilizes Spring Boot framework for rapid application development and dependency management.</p> </li>
@@ -44,7 +45,7 @@ spring.datasource.password=root
 <h2>Contributing</h2>
 <p>Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue or submit a pull request.</p>
 <h2>License</h2>
-<p>This project is licensed under the MIT License. See the <a>LICENSE </a> file for details.</p>
+<p>This project is licensed under the MIT License. See the <a href="LICENSE ">LICENSE </a> file for details.</p>
 <h2>Authors</h2>
 <h4>K.Venkata Shyam</h4>
 <h2>Acknowledgments</h2>
