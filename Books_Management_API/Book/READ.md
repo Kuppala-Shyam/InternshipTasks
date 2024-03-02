@@ -4,7 +4,7 @@
 <p>To build and run the application, follow these steps:</p>
 <p>1.Ensure you have Maven, Java, and MySQL installed on your system.</p>
 <p>2.Clone the repository to your local machine:</p>
-<code>git clone <a href="https://github.com/InternshipTasks.git">https://github.com/InternshipTasks.git</a></code>
+<code>git clone <a href="https://github.com/Kuppala-Shyam/InternshipTasks.git">https://github.com/Kuppala-Shyam/InternshipTasks.git</a></code>
 <p>3.Navigate to the project directory:</p>
 <code>cd BookManagementAPI</code>
 <p>4.Configure your MySQL database connection in the application.properties file:</p>
