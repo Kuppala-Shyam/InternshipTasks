@@ -10,11 +10,11 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.jsp</groupId>
-	<artifactId>HomeServeO</artifactId>
+	<artifactId>BookManagementAPI</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>HomeServeO</name>
-	<description>Platform connects house workers with Clint who want house
-		workers</description>
+	<name>BookManagementAPI</name>
+	<description>Platform connects books in online resource with clint who really wants
+		the particular book</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
