@@ -70,7 +70,6 @@ public class AccountServiceTest {
 	    String nonExistingName = "Non-Existing Name";
 	    Mockito.when(accountRepository.findAccountByName(nonExistingName)).thenReturn(null);
 
-	    // Expect AccountNotFoundException to be thrown
 	    assertThrows(AccountNotFoundException.class, () -> accountService.viewAccountDetails(nonExistingName));
 
 	    Mockito.verify(accountRepository).findAccountByName(nonExistingName);
@@ -78,7 +77,6 @@ public class AccountServiceTest {
 	@Test
 	public void testViewBalance_AccountFound() {
 	   
-
 	    String existingAccountNumber = "12345";
 	    Mockito.when(accountRepository.findByAccountNumber(existingAccountNumber)).thenReturn(testAccount);
 
@@ -96,7 +94,6 @@ public class AccountServiceTest {
 	    String nonExistingAccountNumber = "98765";
 	    Mockito.when(accountRepository.findByAccountNumber(nonExistingAccountNumber)).thenReturn(null);
 
-	    // Expect AccountNotFoundException to be thrown
 	    assertThrows(AccountNotFoundException.class, () -> accountService.viewBalance(nonExistingAccountNumber));
 
 	    Mockito.verify(accountRepository).findByAccountNumber(nonExistingAccountNumber);
@@ -116,8 +113,6 @@ public class AccountServiceTest {
         updatedAccount.setName("Joe");
         updatedAccount.setPhoneNumber(8741356512l);
 	 
-
-	    // Expect AccountNotFoundException to be thrown
 	    assertThrows(AccountNotFoundException.class, () -> accountService.updateAccountDetails(nonExistingAccountNumber, updatedAccount));
 
 	    Mockito.verify(accountRepository).findByAccountNumber(nonExistingAccountNumber);
@@ -130,11 +125,11 @@ public class AccountServiceTest {
 
 	    Account deletedAccount = accountService.deleteAccount(existingAccountNumber);
 
-	    // Assert that the returned account matches the test account
+	    
 	    assertNotNull(deletedAccount);
 	    assertEquals(testAccount, deletedAccount);
 
-	    // Verify that the delete method is called on the repository
+
 	    Mockito.verify(accountRepository).delete(testAccount);
 	}
 
@@ -144,7 +139,7 @@ public class AccountServiceTest {
 	    String nonExistingAccountNumber = "98765";
 	    Mockito.when(accountRepository.findByAccountNumber(nonExistingAccountNumber)).thenReturn(null);
 
-	    // Expect AccountNotFoundException to be thrown
+	    
 	    assertThrows(AccountNotFoundException.class, () -> accountService.deleteAccount(nonExistingAccountNumber));
 
 	    Mockito.verify(accountRepository).findByAccountNumber(nonExistingAccountNumber);
