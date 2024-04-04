@@ -60,20 +60,15 @@ export class TodoService {
   }
 
   // Method to open a modal for confirmation before deleting a todo item
-  openModal(content: TemplateRef<Element>, i: number, type: String) {
+  openModal(content: TemplateRef<Element>, i: number, list: todo_list[]) {
     // Open a modal with the specified content and title
     this.modalService
       .open(content, { ariaLabelledBy: 'modal-basic-title' })
       .result.then(
         (result) => {
           // If the user confirms the action, remove the todo item from the appropriate list
-          if (type == 'todoList') {
-            this.todoList.splice(i, 1); // Remove the todo item from the todoList array
-          } else {
-            this.finishedList.splice(i, 1); // Remove the todo item from the finishedList array
-          }
+          list.splice(i, 1);
         }
-        
       );
-  }
+  }  
 }

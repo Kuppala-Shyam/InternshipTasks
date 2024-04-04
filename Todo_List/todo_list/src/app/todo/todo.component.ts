@@ -52,7 +52,7 @@ export class TodoComponent {
   }
 
   // Function to open modal for editing todo or finished list
-  openModal(content: TemplateRef<Element>, i: number, type: String) {
-    this.todoService.openModal(content, i, type);
+  openModal(content: TemplateRef<Element>, i: number, list: todo_list[]) {
+    this.todoService.openModal(content, i, list);
   }
 }
