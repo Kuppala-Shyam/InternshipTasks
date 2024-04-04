@@ -1,27 +1,61 @@
-# TodoList
+# Angular Todo List App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.2.
+This project is a simple Angular Todo List application built using Angular version 12.
 
-## Development server
+## Overview
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The Todo List app allows users to manage their daily tasks by adding new todo items, marking them as completed, and deleting them. It consists of the following components:
 
-## Code scaffolding
+- **TodoComponent**: Responsible for rendering the todo list, adding new todo items, marking items as completed, and deleting them. It also handles the display of the current date and time.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **TodoService**: Provides methods for managing todo items, such as adding new items, toggling completion status, and moving items between the todo list and finished list. It also handles the modal for confirming item deletion.
 
-## Build
+- **AppComponent**: The root component of the application. It initializes the TodoComponent.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Usage
 
-## Running unit tests
+To run the Todo List app locally, follow these steps:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Clone the repository to your local machine.
 
-## Running end-to-end tests
+2. Install dependencies using npm:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+    ```
+    npm install
+    ```
 
-## Further help
+3. Start the development server:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    ```
+    ng serve
+    ```
+
+4. Open your web browser and navigate to `http://localhost:4200/` to view the app.
+
+## Folder Structure
+
+```
+├── src/
+│   ├── app/
+│   │   ├── class/                  # Contains class definitions
+│   │   │   └── todo.ts
+│   │   ├── service/                # Contains service classes
+│   │   │   └── todo.service.ts
+│   │   ├── todo/                   # Contains components related to todo functionality
+│   │   │   ├── todo.component.ts
+│   │   │   ├── todo.component.html
+│   │   │   └── todo.component.css
+│   │   ├── app.component.ts        # Root component
+│   │   └── app.config.ts           # Application module
+├── angular.json                    # Angular configuration file
+├── package.json                    # Project dependencies
+└── README.md                       # This README file
+```
+
+## Additional Notes
+
+- This project uses Bootstrap for styling and NgbModal for modal functionality.
+
+- Unit tests for the components and services are not included in this project. You may consider adding them to ensure the reliability of the codebase.
+## Acknowledgement
+Special Thanks to Angular to make project easier and Thanking to Jeev Lifeworks LLP by giving this opportunity for me
