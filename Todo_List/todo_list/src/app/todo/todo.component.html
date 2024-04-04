@@ -1,0 +1,135 @@
+<div class="container">
+  <div class="col-12 d-flex justify-content-center">
+    <div class="col-4 todo-block">
+      <!-- Title -->
+      <h1 id="list">Todo List</h1>
+
+      <!-- Display current date and time -->
+      <div id="time">{{ currentDateTime }}</div>
+      <br />
+
+      <div
+        class="col-12 d-flex flex-column align-items-center justify-content-between"
+      >
+        <!-- Input field for adding new todo item -->
+        <div class="position-relative">
+          <input
+            type="text"
+            name="text"
+            class="col-8 todo-input"
+            placeholder="Enter text"
+            [(ngModel)]="todoValue"
+            required
+            #todoInput="ngModel"
+          />
+          <!-- Validation message -->
+          <div
+            class="text-danger validation-message"
+            *ngIf="todoInput.invalid && (todoInput.dirty || todoInput.touched)"
+          >
+            Field is required.
+          </div>
+        </div>
+        <br />
+        <!-- Button to add new todo item -->
+        <button type="submit" class="col-3 btn-primary" (click)="addTodo()">
+          Add
+        </button>
+      </div>
+      <hr />
+
+      <!-- Todo List -->
+      <div class="todo-list">
+        <h4 class="head">Todo Items To Finish</h4>
+        <br />
+        <div
+          class="col-12 d-flex todo-single align-center"
+          *ngFor="let todo of todoService.todoList; let i = index"
+        >
+          <!-- Checkbox to mark todo item as completed -->
+          <input
+            type="checkbox"
+            class="col-1 todo-checkbox"
+            [(ngModel)]="todo.value"
+            (click)="changeTodo(i)"
+          />
+          <!-- Display todo item content -->
+          <p class="col-9" id="first">{{ todo.content }}</p>
+          <!-- Button to open delete confirmation modal -->
+          <button
+            type="button"
+            class="btn btn-outline-light text-danger col-1 del-btn"
+            (click)="openModal(content, i, 'todoService.todoList')"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+      <br />
+      <hr />
+
+      <!-- Finished List -->
+      <div class="todo-list" *ngIf="todoService.finishedList.length > 0">
+        <h4 class="head">Finished List</h4>
+        <div
+          class="col-12 d-flex todo-single align-center"
+          *ngFor="let todo of todoService.finishedList; let i = index"
+        >
+          <!-- Checkbox to mark todo item as unfinished -->
+          <input
+            type="checkbox"
+            class="col-1 todo-checkbox"
+            [(ngModel)]="todo.value"
+            (ngModelChange)="changeFinished(i)"
+          />
+          <!-- Display finished todo item content -->
+          <p class="col-9" [class.completed]="todo.value">{{ todo.content }}</p>
+          <!-- Button to open delete confirmation modal -->
+          <button
+            type="button"
+            class="btn btn-outline-light text-danger col-1 del-btn"
+            (click)="openModal(content, i, 'todoService.finishedList')"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-title">Delete</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close button"
+      aria-describedby="modal-title"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <p>Are you sure you want to delete?</p>
+  </div>
+  <div class="modal-footer">
+    <!-- Cancel button -->
+    <button
+      type="button"
+      class="btn btn-outline-secondary"
+      (click)="modal.dismiss('cancel click')"
+    >
+      Cancel
+    </button>
+    <!-- Confirm deletion button -->
+    <button
+      type="button"
+      ngbAutofocus
+      class="btn btn-danger"
+      (click)="modal.close('Ok click')"
+    >
+      Ok
+    </button>
+  </div>
+</ng-template>
