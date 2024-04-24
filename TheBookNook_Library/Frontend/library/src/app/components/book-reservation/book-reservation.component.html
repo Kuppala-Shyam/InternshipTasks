@@ -1,0 +1,25 @@
+<div>
+  <h2>Book Reservations</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Reservation ID</th>
+        <th>User</th>
+        <th>Book</th>
+        <th>Reservation Date</th>
+        <th>Status</th>
+        <!-- Add more headers as per your interface -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reservation of reservations">
+        <td>{{ reservation.reserveId }}</td>
+        <td>{{ reservation.userId.firstName }} {{ reservation.userId.lastName }}</td>
+        <td>{{ reservation.bookId.bookTitle }}</td>
+        <td>{{ reservation.reservationDate }}</td>
+        <td>{{ reservation.status }}</td>
+        <!-- Add more columns as per your interface -->
+      </tr>
+    </tbody>
+  </table>
+</div>

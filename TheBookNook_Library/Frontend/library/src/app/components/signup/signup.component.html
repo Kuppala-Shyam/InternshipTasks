@@ -1,0 +1,110 @@
+<body>
+  <!-- signup.component.html -->
+<div class="container">
+  <div class="center">
+    <h1>Register</h1>
+    <!-- Signup form -->
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <!-- First Name -->
+      <div class="txt_field">
+        <label>First Name</label>
+        <input type="text" formControlName="firstName" class="form-control" required />
+        <span></span>
+        <!-- Display error message if first name is invalid and touched -->
+        <small class="text-danger" *ngIf="signupForm.get('firstName')?.invalid && signupForm.get('firstName')?.touched">First Name is required</small>
+      </div>
+
+      <!-- Last Name -->
+      <div class="txt_field">
+        <label>Last Name</label>
+        <input type="text" formControlName="lastName" class="form-control" required />
+        <span></span>
+        <!-- Display error message if last name is invalid and touched -->
+        <small class="text-danger" *ngIf="signupForm.get('lastName')?.invalid && signupForm.get('lastName')?.touched">Last Name is required</small>
+      </div>
+
+      <!-- Email -->
+      <div class="txt_field">
+        <label>Email</label>
+        <input type="email" formControlName="email" class="form-control" required />
+        <span></span>
+        <!-- Display error messages for email validation -->
+        <small class="text-danger" *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">Email is required</small>
+        <small class="text-danger" *ngIf="signupForm.get('email')?.hasError('email')">Invalid email format</small>
+      </div>
+
+      <!-- Address -->
+      <div class="txt_field">
+        <label>Address</label>
+        <textarea formControlName="address" class="form-control" rows="4" required></textarea>
+        <span></span>
+        <!-- Display error message if address is invalid and touched -->
+        <small class="text-danger" *ngIf="signupForm.get('address')?.invalid && signupForm.get('address')?.touched">Address is required</small>
+      </div>
+
+      <!-- Phone Number -->
+      <div class="txt_field">
+        <label>Phone Number</label>
+        <input type="text" formControlName="phoneNumber" class="form-control" required pattern="^[0-9]+$" />
+        <span></span>
+        <!-- Display error messages for phone number validation -->
+        <small class="text-danger" *ngIf="signupForm.get('phoneNumber')?.invalid && signupForm.get('phoneNumber')?.touched">Phone Number is required</small>
+        <small class="text-danger" *ngIf="signupForm.get('phoneNumber')?.hasError('pattern')">Invalid phone number format (numbers only)</small>
+      </div>
+
+      <!-- Password -->
+      <div class="txt_field">
+        <label>Password</label>
+        <input type="password" formControlName="password" class="form-control" required minlength="2" />
+        <span></span>
+        <!-- Display error messages for password validation -->
+        <small class="text-danger" *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">Password is required</small>
+        <small class="text-danger" *ngIf="signupForm.get('password')?.hasError('minlength')">Password must be at least 2 characters long</small>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="txt_field">
+        <label>Confirm Password</label>
+        <input type="password" formControlName="confirmPassword" class="form-control" required />
+        <span></span>
+        <!-- Display error messages for confirm password validation -->
+        <small class="text-danger" *ngIf="signupForm.get('confirmPassword')?.invalid && signupForm.get('confirmPassword')?.touched">Confirm Password is required</small>
+        <small class="text-danger" *ngIf="signupForm.hasError('passwordMismatch')">Passwords do not match</small>
+      </div>
+
+      <!-- Balance -->
+      <div class="txt_field">
+        <label>Balance</label>
+        <input type="number" formControlName="balance" class="form-control" required />
+        <span></span>
+        <!-- Display error message if balance is invalid and touched -->
+        <small class="text-danger" *ngIf="signupForm.get('balance')?.invalid && signupForm.get('balance')?.touched">Balance is required</small>
+      </div>
+
+      <!-- Role -->
+      <div class="txt_field">
+        <label>Role</label>
+        <select formControlName="role" class="form-control" required>
+          <!-- Dropdown options for user role -->
+          <option value="" disabled selected>Select Role</option>
+          <option value="ADMIN">Admin</option>
+          <option value="USER">User</option>
+        </select>
+        <span></span>
+        <!-- Display error message if role is invalid and touched -->
+        <small class="text-danger" *ngIf="signupForm.get('role')?.invalid && signupForm.get('role')?.touched">Role is required</small>
+      </div>
+      <br>
+      <!-- Submit button -->
+      <button type="submit" >Sign Up</button>
+      <!-- Signup link for existing users -->
+      <div class="signup_link">
+        Have an Account ? <a (click)="onClick()">Login Here</a>
+        <br>
+       Want to homepage ? <a (click)="onMove()">homepage</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+</body>

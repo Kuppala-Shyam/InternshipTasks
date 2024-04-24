@@ -1,0 +1,23 @@
+/* userDetailsComponent.component.css */
+
+table {
+    border-collapse: collapse; /* Combine table borders for cleaner look */
+    width: 100%; /* Make table fill available space */
+  }
+  
+  th,
+  td {
+    padding: 10px; /* Add padding for better readability */
+    border: 1px solid #ddd; /* Add a thin border for separation */
+    text-align: left; /* Align content to the left */
+  }
+  
+  th {
+    background-color: #f2f2f2; /* Light gray background for headers */
+    font-weight: bold; /* Make headers bolder for distinction */
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #fafafa; /* Alternate row color for better readability */
+  }
+  

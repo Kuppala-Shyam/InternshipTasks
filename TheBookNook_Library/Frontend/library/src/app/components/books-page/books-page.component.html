@@ -1,0 +1,72 @@
+<p>books-page works!</p>
+<header>
+  <div class="logo-title">
+    <img src="assets/images/6888801.jpg" alt="Logo" />
+    <h1>The Book Nook</h1>
+  </div>
+  <div class="search-bar">
+    <input
+      type="text"
+      placeholder="Search  here whatever you want"
+      (input)="searchBooks($event)"
+    />
+    <button type="button">Search</button>
+  </div>
+  <div class="user-actions">
+    <button (click)="onLogout()">Logout</button>
+    <button class="profile-toggle-button" (click)="toggleProfileDetails()">Profile</button>
+  
+    
+    <button>
+      <a href="#top" class="menu-toggle"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+      </a>
+    </button>
+  </div>
+</header>
+<div *ngIf="!showProfileDetails">
+  <section>
+    <div class="user-comp">
+      <app-user></app-user>
+    </div>
+  </section>
+ <main class="main-page">
+  <div class="grid-container">
+    <div class="grid-item" *ngFor="let book of booksfinal">
+      <div class="card">
+        <img src="../../../assets/images/images.jpg" alt="">
+        <div class="card-content">
+          
+          <h3>{{ book.bookTitle }}</h3>
+          <p>Author: {{ book.authorName }}</p>
+          <p>Category: {{ book.category }}</p>
+          <p *ngIf="book.available">Available</p>
+          <p *ngIf="book.reserved">Reserved</p>
+          <p *ngIf="book.borrowed">Borrowed</p>
+          <div class="books-borrow-button">
+            <button class="borrow-button" (click)="borrowBook(userId, book.bookId)" [disabled]="!book.available " [ngClass]="{ blurred: !book.available }">
+              Borrow
+            </button>
+            <button (click)="returnBook(userId,book.bookId)" *ngIf="book.borrowed">Return</button>
+            <button class="reserve-button" (click)="reserveBook(userId, book.bookId)">
+              Reserve
+            </button>
+            <mat-icon *ngIf="role == 'ADMIN'" (click)="deleteBook(book.bookId)">delete</mat-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+  
+</div>
+
+<div *ngIf="showProfileDetails">
+  <!-- Profile details component -->
+  <app-profile  [user]="currentUser"></app-profile>
+</div>
+<!-- *ngIf="userId !== undefined" -->
+
+
+
+<!-- <img src="../../../assets/images/library.jpg" alt=""> -->

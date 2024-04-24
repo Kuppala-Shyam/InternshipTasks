@@ -1,0 +1,164 @@
+*{
+  background-image: none;
+}
+
+header {
+  border: 2px solid;
+  height: 50px;
+  display: flex; /* Make header elements side-by-side */
+  justify-content: space-between; /* Distribute elements evenly */
+  align-items: center; /* Align vertically */
+  padding: 1rem 2rem; /* Add some padding */
+  background-color: #f0f0f0;
+  width: 100%; /* Make header full width */
+  position: fixed;
+  top: 0%;
+  z-index: 100;
+}
+
+.logo-title {
+  /* border: 2px solid; */
+  display: flex;
+  align-items: center;
+  color: crimson;
+}
+
+.logo-title img {
+  width: 70px; /* Adjust logo size */
+  margin-right: 1rem; /* Space between logo and title */
+}
+
+.search-bar {
+  /* border: 2px solid; */
+  display: flex;
+  align-items: center;
+  height: 90%;
+  width: 50%; /* Adjust width as desired */
+  background-color: #e0e0e0;
+  border-radius: 50px;
+  overflow: hidden;
+  background-color: black;
+  color: #ccc;
+}
+
+.search-bar input {
+  background-color: black;
+  color: #ccc;
+  padding: 0.7rem 2rem;
+  /* Adjust padding for comfort */
+  width: 80%;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-bar button {
+  color: deeppink;
+  font-size: larger;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0 1rem;
+  margin-left: 1rem;
+}
+
+.search-bar button:hover {
+  /* Optional hover effect */
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.user-actions {
+  /* border: 2px solid; */
+  display: flex;
+  padding-right: 50px;
+}
+
+.user-actions button {
+  color: aqua;
+  background-color: black;
+  padding: 0.5rem 1rem;
+  /* border: 1px solid #ccc; */
+  border-radius: 50%;
+  margin-left: 2rem;
+}
+
+.menu-toggle {
+  color: aqua;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column; /* Stack links vertically */
+  list-style: none;
+  padding: 1rem;
+  background-color: #f0f0f0; /* Optional menu background */
+  position: absolute; /* Position menu off-screen initially */
+  top: 100%; /* Place menu below the header */
+  left: 0; /* Align menu to the left */
+}
+
+.main-page {
+  position: absolute;
+  top: 350px;
+}
+
+.grid-container {
+  display: grid;
+  /* border: 2px solid; */
+  grid-template-columns: repeat(4, auto);
+  padding: 10px;
+}
+.grid-item {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+.books-borrow-button {
+  display: flex;
+  justify-content: space-between;
+}
+
+.borrow-button,
+.reserve-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.borrow-button {
+  background-color:red; /* Blue color */
+  color: #fff; /* White text */
+}
+
+.reserve-button {
+  background-color: #28a745; /* Green color */
+  color: #fff; /* White text */
+}
+
+.borrow-button:hover,
+.reserve-button:hover {
+  background-color: #0056b3; /* Darker blue for borrow button */
+  background-color: #218838; /* Darker green for reserve button */
+}
+
+.blurred {
+  filter: blur(2px); /* Adjust the blur strength as needed */
+}
+
+.user-comp{
+  position: absolute;
+  top: 120px;
+  height: 100px;
+}
+
+.books-action-buttons button {
+  margin-right: 10px;
+}
+
+.books-action-buttons button mat-icon {
+  margin-right: 5px;
+}

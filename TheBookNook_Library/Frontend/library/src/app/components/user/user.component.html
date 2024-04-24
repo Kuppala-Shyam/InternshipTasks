@@ -1,0 +1,76 @@
+<!-- This section displays content specific to users with the role 'USER' -->
+<div class="user-wish" *ngIf="user && user.role === 'USER'">
+  <div>
+    <h1 id="greeting">
+      Hello! user, {{ getLoggedInUsername() }}, we heartily welcomes you to this
+      page
+    </h1>
+    <div class="para-content">
+      <p>
+        Here you can search the books whatever you want in search bar and borrow
+        it and return them in time
+      </p>
+      <p>
+        Please return the book you borrowed with in the stipulated time i.e 7
+        days, if not you have to bear fine along with the cost of borrowing
+      </p>
+      <!-- Clicking this button invokes the returnBook method -->
+      <!-- <label for="">click here to return the book you have taken</label>:
+      <button (click)="returnBook(userId, bookId)">Return</button> -->
+    </div>
+  </div>
+  <div id="img">
+    <!-- Image section -->
+  </div>
+</div>
+
+<!-- This section displays content specific to users with the role 'ADMIN' -->
+<div class="user-wish" *ngIf="user && user.role === 'ADMIN'">
+  <section class="admin-panel">
+    <h1 id="greeting">
+      Hello! admin, {{ getLoggedInUsername() }}, we heartily welcome you to
+      this page
+    </h1>
+
+    <!-- Admin actions section -->
+    <article class="actions">
+      <!-- Button to navigate to the add book page -->
+      <label for="addBook">Click here to add a new book:</label>
+      <button (click)="addBook()" class="add-book">Add Book</button>
+    
+      
+      <!-- Button to check book reservation status -->
+      <label for="bookReservation">
+        Click here to check the book reserve status:
+      </label>
+      <button (click)="onClick()" class="book-reservation">
+        Book Reservation
+      </button>
+
+      <!-- Button to get details of all users -->
+      <label for="allUsers">Click here to get details of all users:</label>
+      <button (click)="getAllUsersData()" class="get-users">
+        Get All Users Details
+      </button>
+    </article>
+
+    <!-- Section to display all users' details -->
+    <section class="user-details" *ngIf="showUserDetails">
+      <h2>All Users Details</h2>
+      <ul class="user-list">
+        <!-- Iterating over all users and displaying their details -->
+        <li *ngFor="let user of allUsers">
+          <p class="user-id">User ID: {{ user.userId }}</p>
+          <p class="user-name">
+            First Name: {{ user.firstName }} Last Name: {{ user.lastName }}
+          </p>
+          <p class="user-email">Email: {{ user.email }}</p>
+        </li>
+      </ul>
+    </section>
+  </section>
+
+  <div id="img">
+    <!-- Image section -->
+  </div>
+</div>

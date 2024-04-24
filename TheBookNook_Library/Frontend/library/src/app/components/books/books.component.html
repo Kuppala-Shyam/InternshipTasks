@@ -1,0 +1,14 @@
+<p>books works!</p>
+<div *ngIf="authService.isLoggedIn">
+    <h2>Books</h2>
+    <ul>
+      <li *ngFor="let book of books">
+        {{ book.title }} - {{ book.author }}
+      </li>
+    </ul>
+  </div>
+  
+  <div *ngIf="!authService.isLoggedIn">
+    Please login to view books.
+  </div>
+  

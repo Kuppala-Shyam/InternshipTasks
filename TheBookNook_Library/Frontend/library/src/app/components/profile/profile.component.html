@@ -1,0 +1,17 @@
+<!-- profile-details.component.html -->
+
+<div class="profile-details" [@slideInOut]="user ? 'in' : 'out'">
+  <!-- The profile-details component displays the user's profile information with a sliding animation. -->
+  <div class="profile-header">Profile Details</div>
+  <!-- If user data is available, display the profile content -->
+  <div class="profile-content" *ngIf="user">
+      <!-- Display user details such as name, last name, email, phone number, address, and role. -->
+      <p>Name: {{ user.firstName }}</p>
+      <p>Last Name: {{ user.lastName }}</p>
+      <p>Email: {{ user.email }}</p>
+      <p>Phone Number: {{ user.phoneNumber }}</p>
+      <p>Address: {{ user.address }}</p>
+      <p>Role: {{ user.role }}</p>
+      <!-- Add other user details here -->
+  </div>
+</div>

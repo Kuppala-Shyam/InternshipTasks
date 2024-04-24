@@ -1,0 +1,77 @@
+<body>
+    <header>
+        <div class="logo-title">
+          <img src="assets/images/6888801.jpg" alt="Logo">
+          <h1>The Book Nook</h1>
+        </div>
+        <div class="search-bar" *ngIf = "login">
+          <!-- <input type="text" placeholder="Search  here whatever you want">
+          <button type="button">Search</button> -->
+        </div>
+        <div class="user-actions">
+            <button (click)="onLoginClick()">Login</button> 
+            <button (click)="onSignupClick()">Signup</button>
+          <button>
+            <a href="#top" class="menu-toggle"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+            </a>
+          </button>
+        </div>
+      </header>
+
+     
+      <main>
+       
+        <div class="main-page">
+            <div class="welcome">
+                <h1 id="our">Welcome to The Book Nook </h1>
+            </div>  
+            <div class="content">
+                <p>Explore our vast collection of books and immerse yourself in the world of literature. Whether you're a fan of fiction, non-fiction, thrillers, romance, or any other 
+                    genre, you'll find something to pique your interest here. Here we are providing the books for user to borrow the books, if his location is in our premises.
+                     We are charging very reasonable rent for the borrowed book and if he not returned with in the stipulated time then he has to pay fine along with rent of book. 
+                     So inorder to avoid it please rent the book in time or else visit the library to renewal the book for some more days to keep it with you. So if you are interested please visit our website or 
+                     our library office to get Register and get the access to our library books. We are allowing only authenticated user to search the books for borrowing. 
+                    </p>
+            </div>
+            <section class="borrow-section">
+                <h2>Borrow Books from The Book Nook</h2>
+                <p>Ready to dive into your next literary adventure? Sign up for an account with The Book Nook and start borrowing books today!</p>
+                <p>With your Book Nook account, you'll have access to our entire collection of books, including bestsellers, classics, and hidden gems. Simply browse our catalog, select the books you want to borrow, and enjoy them at your leisure.</p>
+                <p>Signing up is quick and easy. Don't miss out on the opportunity to discover new worlds and expand your horizons. Join The Book Nook community now!</p>
+            </section>
+        </div>
+      </main>
+    
+ 
+
+    <footer class="footer">
+        <div class="container">
+          <div class="footer-info">
+            <h3>About The Book Nook</h3>
+            <p>A warm and inviting space offering an extensive collection of books, audiobooks, ebooks, and more. We also provide a variety of services to help you explore the world of literature and learning.</p>
+          </div>
+          <div class="footer-links">
+            <h3>Why Visit Us?</h3>
+            <ul>
+              <li>Find your next favorite read.</li>
+              <li>Enjoy a free and accessible community space.</li>
+              <li>Participate in engaging events and programs.</li>
+              <li>Gain access to valuable learning resources.</li>
+            </ul>
+          </div>
+          <div class="footer-cta">
+            <h3>Get Involved</h3>
+            <ul>
+              <li><a href="#">Become a Member</a></li>
+              <li><a href="#">Browse Our Catalog</a></li>
+              <li><a href="#">Follow Us on Social Media</a></li>
+            </ul>
+            
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; The Book Nook - All Rights Reserved</p>
+        </div>
+      </footer>
+      
+</body>

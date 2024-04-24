@@ -1,0 +1,228 @@
+*{
+  
+}
+  
+header {
+    border: 2px solid;
+    height: 50px;
+    display: flex; /* Make header elements side-by-side */
+    justify-content: space-between; /* Distribute elements evenly */
+    align-items: center; /* Align vertically */
+    padding: 1rem 2rem; /* Add some padding */
+    background-color:#f0f0f0;
+    width: 100%; /* Make header full width */
+    position:fixed;
+    top: 0%;
+    z-index: 100;
+  }
+  
+  .logo-title {
+    /* border: 2px solid; */
+    display: flex;
+    align-items: center;
+    color: crimson;
+  }
+  
+  .logo-title img {
+    width: 70px; /* Adjust logo size */
+    margin-right: 1rem; /* Space between logo and title */
+  }
+  
+  .search-bar {
+    /* border: 2px solid; */
+    display: flex;
+    align-items: center;
+    height: 90%;
+    width: 50%;  /* Adjust width as desired */
+    /* background-color: #e0e0e0; Optional background color */
+    border-radius: 50px;
+    overflow: hidden;
+    /* background-color: black; */
+    color: #ccc;
+  }
+  
+  .search-bar input {
+    background-color: black;
+    color: #ccc;
+    padding: 0.7rem 2rem; 
+    /* Adjust padding for comfort */
+    width: 80%;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  .search-bar button {
+    color:deeppink;
+    font-size: larger;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0 1rem;
+    margin-left: 1rem;
+  }
+  
+  .search-bar button:hover { /* Optional hover effect */
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-actions {
+    /* border: 2px solid; */
+    display: flex;
+    padding-right: 50px;
+  }
+  
+  .user-actions button {
+    color: aqua;
+    background-color: black;
+    padding: 0.5rem 1rem;
+    /* border: 1px solid #ccc; */
+    border-radius: 50%;
+    margin-left: 2rem;
+  }
+  
+  .menu-toggle {
+    color: aqua;
+  }
+  
+  .menu {
+    display: flex;
+    flex-direction: column; /* Stack links vertically */
+    list-style: none;
+    padding: 1rem;
+    background-color: #f0f0f0; /* Optional menu background */
+    position: absolute; /* Position menu off-screen initially */
+    top: 100%; /* Place menu below the header */
+    left: 0; /* Align menu to the left */
+    
+  }  
+  
+  .main-page{
+     background-image: url(../../../assets/images/library1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1000px;
+    /* background-color: rgba(200, 11, 11, 0.5); */
+    
+    
+  }
+  .welcome{
+    position: absolute;
+    top: 80px;
+    left: 500px;
+    color: red;
+    
+  }
+
+  #our{
+   font-size: 50px;
+  }
+  
+  .content{
+    /* border: 2px solid black; */
+    height: 300px;
+    width: 1000px;
+    position: absolute;
+    top: 200px;
+    left: 50px;
+    color:rgb(228, 144, 9);
+    font-size: 25px;
+    font-weight: 400;
+    box-shadow: 0 0 10px rgba(20, 18, 18, 0.628);
+    padding: 20px;
+
+  }
+  .borrow-section{
+    /* border: 2px solid; */
+    position: absolute;
+    top: 550px;
+    left: 400px;
+    right: 50px;
+    color:coral;
+    font-size: 25px;
+    font-weight: 400;
+    box-shadow: 0 0 10px rgba(20, 18, 18, 0.628);
+    padding: 20px;
+  }
+ .about-section{
+    /* border: 2px solid; */
+    /* background-color: black; */
+    font-size: 18px;
+    font-weight: 400;
+    position: absolute;
+    top: 1150px;
+    left: 50px;
+    color: crimson;
+    box-shadow: 0 0 10px rgba(223, 24, 24, 0.628);
+   width: 50%;
+   height: 42%;
+   padding: 20px;
+ }
+ .footer {
+    background-color: black;
+    padding: 3rem 0;
+    color:white;
+    text-align: center; /* Center content initially */
+  }
+  
+  .container {
+    display: flex; /* Flexbox for responsive layout */
+    flex-wrap: wrap; /* Allow content to wrap on smaller screens */
+    justify-content: space-between; /* Distribute content evenly */
+    max-width: 1000px; /* Limit container width */
+    margin: 0 auto; /* Center container horizontally */
+  }
+  
+  .footer-info,
+  .footer-links,
+  .footer-cta {
+    flex: 1; /* Distribute sections equally on larger screens */
+    padding: 1rem;
+  }
+  
+  .footer h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem; /* Adjust heading size as needed */
+  }
+  
+  .footer-links ul,
+  .footer-cta ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-links li,
+  .footer-cta li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-cta .social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .footer-cta .social-icons a {
+    color: inherit;
+    margin: 0 0.5rem;
+    font-size: 1.2rem; /* Adjust social icon size */
+  }
+  
+  .copyright {
+    text-align: center;
+    background-color:blue;
+    padding: 1rem 0;
+  }
+  
+  /* Media Queries for Responsive Design */
+  
+  @media (max-width: 768px) {
+    .footer-info,
+    .footer-links,
+    .footer-cta {
+      flex: 100%; /* Stack sections vertically on smaller screens */
+    }
+  }
+  
