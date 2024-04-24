@@ -1,4 +1,4 @@
-# 📚 THE BOOK NOOK 📖
+# 📚 THE BOOK NOOK LIBRARY 📖
 
 This project is a The Book Nook implemented using Angular for the frontend and Spring Boot for the backend. It provides functionalities for users to browse, search, borrow, and return books. The system also includes user authentication and authorization mechanisms.
 
