@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './book-reservation.component.css',
 })
 export class BookReservationsComponent implements OnInit {
-  reservations: BookReservation[] = [];
+  reservations: any;
   displayedColumns: string[] = [
     'reserveId',
     'userId',
@@ -30,8 +30,9 @@ export class BookReservationsComponent implements OnInit {
     // Fetch all reservations when component initializes
     this.bookReservationService
       .getAllReservations()
-      .subscribe((reservations) => {
-        this.reservations = reservations; // Assuming 'reservations' is an array
+      .subscribe((res:any) => {
+        this.reservations = res.body; // Assuming 'reservations' is an array
+        console.log(res);
       });
   }
 }
