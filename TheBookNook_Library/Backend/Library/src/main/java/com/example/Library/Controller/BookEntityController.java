@@ -1,11 +1,12 @@
 package com.example.Library.Controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +29,7 @@ import com.example.Library.service.BookEntityService;
 public class BookEntityController {
 	@Autowired
 	private BookEntityService bookEntityService;
-
+	HashMap message = new HashMap<String, String>();
 	@GetMapping("/hello")
 	public String hello() {
 		return "Welcome";
@@ -41,10 +42,11 @@ public class BookEntityController {
 	}
 
 	@PostMapping("/{userId}/borrow/{bookId}")
-	public ResponseEntity<String> borrowBook(@PathVariable Integer userId, @PathVariable Long bookId) {
+	public ResponseEntity<?> borrowBook(@PathVariable Integer userId, @PathVariable Long bookId) {
 		try {
-			bookEntityService.borrowBook(userId, bookId);
-			return ResponseEntity.ok("Book borrowed successfully");
+			message.put("message", "Book borrowed successfully");
+			  bookEntityService.borrowBook(userId, bookId);
+			return ResponseEntity.ok().body(message);
 		} catch (BookNotFoundException e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
 		} catch (Exception e) {
@@ -54,10 +56,11 @@ public class BookEntityController {
 
 	// Endpoint to return a book
 	@PostMapping("/{userId}/return/{bookId}")
-	public ResponseEntity<String> returnBook(@PathVariable Integer userId, @PathVariable Long bookId) {
+	public ResponseEntity<?> returnBook(@PathVariable Integer userId, @PathVariable Long bookId) {
 		try {
+			message.put("message", "Book returned successfully");
 			bookEntityService.returnBook(userId, bookId);
-			return ResponseEntity.ok("Book returned successfully");
+			return ResponseEntity.ok().body(message);
 		} catch (BookNotFoundException e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
 		} catch (Exception e) {
@@ -66,10 +69,11 @@ public class BookEntityController {
 	}
 
 	@PostMapping("/{userId}/reserve/{bookId}")
-	public ResponseEntity<String> reserveBook(@PathVariable Integer userId, @PathVariable Long bookId) {
+	public ResponseEntity<?> reserveBook(@PathVariable Integer userId, @PathVariable Long bookId) {
 		try {
+			message.put("message", "Book reserved successfully");
 			bookEntityService.reserveBook(userId, bookId);
-			return ResponseEntity.ok("Book reserved successfully");
+			return ResponseEntity.ok().body(message);
 		} catch (BookNotFoundException e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
 		} catch (Exception e) {
@@ -127,7 +131,7 @@ public class BookEntityController {
 		}
 
 	}
-
+	
 	@DeleteMapping("/deleteBook/{bookId}")
 	public String deleteBookById(@PathVariable("bookId") Long bookId) {
 		bookEntityService.deleteBookById(bookId);
