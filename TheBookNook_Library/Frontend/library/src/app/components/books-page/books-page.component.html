@@ -46,7 +46,7 @@
             <button class="borrow-button" (click)="borrowBook(userId, book.bookId)" [disabled]="!book.available " [ngClass]="{ blurred: !book.available }">
               Borrow
             </button>
-            <button (click)="returnBook(userId,book.bookId)" *ngIf="book.borrowed">Return</button>
+            <button (click)="returnBook(userId,book.bookId)" *ngIf="book.borrowed"  class="borrow-button">Return</button>
             <button class="reserve-button" (click)="reserveBook(userId, book.bookId)">
               Reserve
             </button>
