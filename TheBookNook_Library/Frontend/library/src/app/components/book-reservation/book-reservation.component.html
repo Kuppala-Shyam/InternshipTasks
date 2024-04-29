@@ -8,6 +8,10 @@
         <th>Book</th>
         <th>Reservation Date</th>
         <th>Status</th>
+        <th>BorrowDate</th>
+        <th>returnDate</th>
+        <th>costOfBorrowing</th>
+        <th>fine</th>
         <!-- Add more headers as per your interface -->
       </tr>
     </thead>
@@ -18,6 +22,10 @@
         <td>{{ reservation.bookId.bookTitle }}</td>
         <td>{{ reservation.reservationDate }}</td>
         <td>{{ reservation.status }}</td>
+        <td>{{reservation.borrowDate}}</td>
+        <td>{{reservation.returnDate}}</td>
+        <td>{{reservation.costOfBorrowing}}</td>
+        <td>{{reservation.fine}}</td>
         <!-- Add more columns as per your interface -->
       </tr>
     </tbody>
