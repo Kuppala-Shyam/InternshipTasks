@@ -76,23 +76,33 @@ export class BooksPageComponent implements OnInit {
       alert('User not logged in. Please login to borrow books.');
       return;
     }
+    // this.bookService.borrowBook(userId, bookId).subscribe((res)=>{console.log(res)})
     // Call the book service to borrow the book
     this.bookService.borrowBook(userId, bookId).subscribe(
       (response: any) => {
-        if (
-          typeof response === 'string' &&
-          response.toLowerCase().includes('successfully')
-        ) {
-          alert(response); // Display success message
-        } else {
-          // Handle unexpected response format
-          alert(
-            'An unexpected response was received while borrowing the book.'
-          );
-          console.error('Unexpected response while borrowing book:', response);
-        }
-        // Update book availability if necessary
+        console.log(response)
+        alert("Book borrowed successfully")
+  //       if (
+  //         typeof response === 'string' &&
+  //         response.toLowerCase().includes('successfully')
+  //       ) {
+  //         alert(response); // Display success message
+  //       } else {
+  //         // Handle unexpected response format
+  //         alert(
+  //           'An unexpected response was received while borrowing the book.'
+  //         );
+  //         console.error('Unexpected response while borrowing book:', response);
+  //       }
+  //       // Update book availability if necessary
         this.updateBookAvailability(bookId, false);
+           // Find the index of the borrowed book in the books array
+           const index = this.books.findIndex(book => book.bookId === bookId);
+
+           // If the book is borrowed successfully, update its status and display the return button
+           if (index !== -1) {
+             this.books[index].borrowed = true;
+           }
       },
       (error: HttpErrorResponse) => {
         if (error.status === 400) {
@@ -103,7 +113,7 @@ export class BooksPageComponent implements OnInit {
         }
       }
     );
-  }
+   }
 
   // Return a borrowed book
   returnBook(userId: number, bookId: any): void {
@@ -115,18 +125,19 @@ export class BooksPageComponent implements OnInit {
     // Call the book service to return the book
     this.bookService.returnBook(userId, bookId).subscribe(
       (response: any) => {
-        if (
-          typeof response === 'string' &&
-          response.toLowerCase().includes('successfully')
-        ) {
-          alert(response); // Display success message
-        } else {
-          // Handle unexpected response format
-          alert(
-            'An unexpected response was received while returning the book.'
-          );
-          console.error('Unexpected response while returning book:', response);
-        }
+        alert("Book returned successfully")
+        // if (
+        //   typeof response === 'string' &&
+        //   response.toLowerCase().includes('successfully')
+        // ) {
+        //   alert(response); // Display success message
+        // } else {
+        //   // Handle unexpected response format
+        //   alert(
+        //     'An unexpected response was received while returning the book.'
+        //   );
+        //   console.error('Unexpected response while returning book:', response);
+        // }
         // Update book availability if necessary
         this.books.forEach((x) => {
           if (x.bookId == bookId) {
@@ -159,18 +170,19 @@ export class BooksPageComponent implements OnInit {
     // Call the book service to reserve the book
     this.bookService.reserveBook(userId, bookId).subscribe(
       (response: any) => {
-        if (
-          typeof response === 'string' &&
-          response.toLowerCase().includes('successfully')
-        ) {
-          alert(response); // Display success message
-        } else {
-          // Handle unexpected response format
-          alert(
-            'An unexpected response was received while reserving the book.'
-          );
-          console.error('Unexpected response while reserving book:', response);
-        }
+        alert("Book reserved successfully")
+        // if (
+        //   typeof response === 'string' &&
+        //   response.toLowerCase().includes('successfully')
+        // ) {
+        //   alert(response); // Display success message
+        // } else {
+        //   // Handle unexpected response format
+        //   alert(
+        //     'An unexpected response was received while reserving the book.'
+        //   );
+        //   console.error('Unexpected response while reserving book:', response);
+        // }
         // Update book availability if necessary
         this.updateBookAvailability(bookId, false);
       },
